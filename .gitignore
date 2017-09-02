@@ -1,0 +1,7 @@
+.*.swp
+.*.db
+fingerprint.txt
+.DS_Store
+debug.php
+*.min.js
+node_modules/
