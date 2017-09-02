@@ -11,7 +11,10 @@ Vue.config.productionTip = false;
 
 const store = new Vuex.Store({
   state: {
-    username: 'ray20204',
+    userInfo: {
+      username: 'ray20204',
+      avatar: 'https://s.pimg.tw/avatar/ray20204/0/0/zoomcrop/150x150.png?v=1500395503',
+    },
   },
   mutations: {
   },
