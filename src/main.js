@@ -24,7 +24,12 @@ const store = new Vuex.Store({
         setArticles (state, response) {
             state.articles = response.articles;
             state.articlePage = response.page;
-        }
+        },
+        setUserInfo (state, response) {
+            state.userInfo.username = response.user.name;
+            state.userInfo.avatar = response.user.avatar;
+            console.log(state.userInfo);
+        },
     },
     actions: {
         getArticles( {commit}) {
@@ -35,6 +40,18 @@ const store = new Vuex.Store({
                         return;
                     }
                     commit('setArticles', res.data);
+                }).catch(error => {
+                    console.log(error);
+                });
+        },
+        getUserInfo( {commit}, userName) {
+            console.log(userName);
+            axios.get(emmaAPI + 'users/' + userName + '?format=json')
+                .then(res => {
+                    if (!res.data.user) {
+                        return;
+                    }
+                    commit('setUserInfo', res.data);
                 }).catch(error => {
                     console.log(error);
                 });
