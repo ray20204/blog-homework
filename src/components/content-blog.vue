@@ -1,23 +1,20 @@
 <template>
   <div class="container pt-5">
        <div class="col-2">
-            <div class="card pt-3">
-                <img class="card-img-top" v-bind:src="avatar">
-               <div class="card-block">
-                   <span>{{ username }}</span>
-               </div>
-           </div>
+           <bloggerInfo></bloggerInfo>
       </div>
   </div>
 </template>
 
 <script>
+import bloggerInfo from './blogger-info.vue';
 export default {
   name: 'blog',
+  components: {
+    bloggerInfo,
+  },
   data() {
     return {
-      username: this.$store.state.userInfo.username,
-      avatar: this.$store.state.userInfo.avatar,
     };
   },
 };
