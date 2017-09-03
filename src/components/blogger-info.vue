@@ -12,9 +12,15 @@ export default {
   name: 'blogInfo',
   data() {
     return {
-      username: this.$store.state.userInfo.username,
-      avatar: this.$store.state.userInfo.avatar,
     };
+  },
+  computed: {
+      username () {
+          return this.$store.state.userInfo.username;
+      },
+      avatar () {
+          return this.$store.state.userInfo.avatar;
+      },
   },
 };
 </script>
