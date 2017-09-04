@@ -5,6 +5,8 @@ import Vuex from 'vuex';
 import axios from 'axios';
 import navbar from './components/navbar';
 import router from './router';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
 
 Vue.use(Vuex);
 
