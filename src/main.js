@@ -21,6 +21,7 @@ const store = new Vuex.Store({
         },
         articles: {},
         articlePage: 1,
+        articleInfo: {},
     },
     mutations: {
         setArticles (state, response) {
@@ -32,6 +33,9 @@ const store = new Vuex.Store({
             state.userInfo.avatar = response.user.avatar;
             console.log(state.userInfo);
         },
+        setArticleInfo (state, response) {
+            state.articleInfo = response.article;
+        }
     },
     actions: {
         getArticles( {commit}) {
@@ -57,6 +61,18 @@ const store = new Vuex.Store({
                 }).catch(error => {
                     console.log(error);
                 });
+        },
+        getArticleInfoById( {commit}, articleID) {
+            axios.get(emmaAPI + 'blog/articles/' + articleID + '?user=' + this.state.userInfo.username + '&format=json')
+                .then(res => {
+                    if (!res.data.article) {
+                        return;
+                    }
+                    commit('setArticleInfo', res.data);
+                }).catch(error => {
+                    console.log(error);
+                });
+
         }
     },
 });

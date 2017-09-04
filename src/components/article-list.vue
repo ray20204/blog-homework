@@ -6,7 +6,7 @@
           </div>
           <div class="col-10">
               <ul>
-                  <li v-for="article in articles">{{ article.title  }}</li>
+                  <li v-for="article in articles"><router-link :to="{ name: 'content-article', params: { id: article.id }}">{{ article.title  }}</router-link></li>
               </ul>
           </div>
       </div>
